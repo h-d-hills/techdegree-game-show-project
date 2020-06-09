@@ -46,7 +46,11 @@ function checkLetter(letter) {
             goodLetter = letter;
         }
     }
-    return goodLetter;
+    if (goodLetter === letter) {
+        return goodLetter;
+    }else{
+        return null;
+    }
 }
 
 //Keyboard Event Listeners
