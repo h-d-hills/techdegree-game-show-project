@@ -2,6 +2,7 @@ const startButton = document.getElementsByClassName('btn__reset')[0];
 const startScreen = document.getElementById('overlay');
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
+const letters = document.getElementsByClassName('letter');
 let missed = 0;
 const phrases = [
     'once in a lifetime', 
@@ -35,3 +36,17 @@ function addToDisplay(word) {
     }
 }
 addToDisplay(guessPhrase);
+
+//Check Letter Guesses
+function checkLetter(letter) {
+    let goodLetter;
+    for(let i=0; i<letters.length; i++) {
+        if(letters[i].textContent == letter) {
+            letters[i].classList.add('show');
+            goodLetter = letter;
+        }
+    }
+    return goodLetter;
+}
+
+//Keyboard Event Listeners
