@@ -54,15 +54,22 @@ function checkLetter(letter) {
     }
 }
 
-//Keyboard Event Listeners
-// qwerty.addEventListener('click', (e) => {
-//     if(e.target.tagName == 'BUTTON') {
-//         checkLetter(e.target.textContent);
-//         e.target.className = 'chosen';
-//         e.target.disabled = true;
-//     } 
-// });
+//Check Win Or Lose
+function checkWin() {
+    if(document.getElementsByClassName('show').length == letters.length) {
+        startScreen.style.display = 'flex';
+        startScreen.className = 'win';
+        startScreen.children[0].innerText = 'Congratulations!';
+        startScreen.children[1].innerText = 'You have won the game!';
+    }else if(missed == 5) {
+        startScreen.style.display = 'flex';
+        startScreen.className = 'lose';
+        startScreen.children[0].innerText = 'Bummer!';
+        startScreen.children[1].innerText = 'I could not be more displeased. You will pay greatly for your sin.';
+    }
+}
 
+//Keyboard Event Listeners
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON') {
         let letterFound = checkLetter(e.target.textContent);
@@ -72,5 +79,6 @@ qwerty.addEventListener('click', (e) => {
             missed++;
             tryList.removeChild(tryList.children[tryList.children.length - 1]);
         }
+        checkWin();
     } 
 });
