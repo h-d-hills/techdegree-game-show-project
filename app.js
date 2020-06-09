@@ -3,6 +3,7 @@ const startScreen = document.getElementById('overlay');
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const letters = document.getElementsByClassName('letter');
+const tryList = document.getElementById('scoreboard').children[0];
 let missed = 0;
 const phrases = [
     'once in a lifetime', 
@@ -54,3 +55,22 @@ function checkLetter(letter) {
 }
 
 //Keyboard Event Listeners
+// qwerty.addEventListener('click', (e) => {
+//     if(e.target.tagName == 'BUTTON') {
+//         checkLetter(e.target.textContent);
+//         e.target.className = 'chosen';
+//         e.target.disabled = true;
+//     } 
+// });
+
+qwerty.addEventListener('click', (e) => {
+    if(e.target.tagName == 'BUTTON') {
+        let letterFound = checkLetter(e.target.textContent);
+        e.target.className = 'chosen';
+        e.target.disabled = true;
+        if(letterFound == null) {
+            missed++;
+            tryList.removeChild(tryList.children[tryList.children.length - 1]);
+        }
+    } 
+});
