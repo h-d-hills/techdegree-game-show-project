@@ -22,6 +22,8 @@ const keyRows = [
 startButton.addEventListener('click', (e) => {
     startScreen.style.display = 'none';
     if(e.target.textContent == 'Reset Game') {
+        document.getElementById('phrase').children[0].innerHTML = null;
+        addToDisplay(getPhrase(phrases));
         for(let i=0; i<qwerty.children.length; i++) {
             document.getElementsByClassName('keyrow')[i].innerHTML = null;
         }
@@ -39,7 +41,6 @@ startButton.addEventListener('click', (e) => {
 function getPhrase(phrase) {
     return phrase[Math.floor((Math.random() * phrase.length))];
 }
-const guessPhrase = getPhrase(phrases);
 
 //Add Letters To Display
 function addToDisplay(word) {
@@ -55,7 +56,7 @@ function addToDisplay(word) {
         ul.appendChild(li);
     }
 }
-addToDisplay(guessPhrase);
+addToDisplay(getPhrase(phrases));
 
 //Check Letter Guesses
 function checkLetter(letter) {
