@@ -27,9 +27,10 @@ startButton.addEventListener('click', (e) => {
         for(let i=0; i<qwerty.children.length; i++) {
             document.getElementsByClassName('keyrow')[i].innerHTML = null;
         }
-        for(let i=0; i<5; i++) {
+        for(let i=0; i<5 - missed; i++) {
             document.getElementById('scoreboard').children[0].removeChild(document.getElementById('scoreboard').children[0].children[0]);
         }
+        missed = 0;
         for(let i=0; i<5; i++) {
             let heart = document.createElement('li');
             heart.innerHTML = '<img src="images/liveHeart.png" height="35px" width="30px">';
