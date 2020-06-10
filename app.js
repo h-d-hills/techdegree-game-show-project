@@ -12,10 +12,27 @@ const phrases = [
     'road to nowhere',
     'psycho killer'
 ];
+const keyRows = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+];
 
 //Hide Start Screen
-startButton.addEventListener('click', () => {
+startButton.addEventListener('click', (e) => {
     startScreen.style.display = 'none';
+    if(e.target.textContent == 'Reset Game') {
+        for(let i=0; i<qwerty.children.length; i++) {
+            document.getElementsByClassName('keyrow')[i].innerHTML = null;
+        }
+    }
+    for(let i=0; i<qwerty.children.length; i++){
+        for(let j=0; j<keyRows[i].length; j++) {
+            let button = document.createElement('button');
+            button.textContent = keyRows[i][j];
+            document.getElementsByClassName('keyrow')[i].appendChild(button);
+        }
+    }
 });
 
 //Generate Phrase To Be Guessed
@@ -32,6 +49,8 @@ function addToDisplay(word) {
         li.textContent = word[i].toLowerCase();
         if (word[i] !== ' ') {
             li.className = 'letter';
+        }else{
+            li.className = 'space';
         }
         ul.appendChild(li);
     }
@@ -44,6 +63,7 @@ function checkLetter(letter) {
     for(let i=0; i<letters.length; i++) {
         if(letters[i].textContent == letter) {
             letters[i].classList.add('show');
+            letters[i].style.transition = '0.5s';
             goodLetter = letter;
         }
     }
@@ -57,15 +77,17 @@ function checkLetter(letter) {
 //Check Win Or Lose
 function checkWin() {
     if(document.getElementsByClassName('show').length == letters.length) {
-        startScreen.style.display = 'flex';
         startScreen.className = 'win';
+        startScreen.style.display = 'flex';
         startScreen.children[0].innerText = 'Congratulations!';
         startScreen.children[1].innerText = 'You have won the game!';
+        startButton.innerText = 'Reset Game';
     }else if(missed == 5) {
-        startScreen.style.display = 'flex';
         startScreen.className = 'lose';
-        startScreen.children[0].innerText = 'Bummer!';
+        startScreen.style.display = 'flex';
+        startScreen.children[0].innerText = 'Failure!';
         startScreen.children[1].innerText = 'I could not be more displeased. You will pay greatly for your sin.';
+        startButton.innerText = 'Reset Game';
     }
 }
 
