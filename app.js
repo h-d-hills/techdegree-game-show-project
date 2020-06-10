@@ -27,16 +27,6 @@ startButton.addEventListener('click', (e) => {
         for(let i=0; i<qwerty.children.length; i++) {
             document.getElementsByClassName('keyrow')[i].innerHTML = null;
         }
-        for(let i=0; i<5 - missed; i++) {
-            document.getElementById('scoreboard').children[0].removeChild(document.getElementById('scoreboard').children[0].children[0]);
-        }
-        missed = 0;
-        for(let i=0; i<5; i++) {
-            let heart = document.createElement('li');
-            heart.innerHTML = '<img src="images/liveHeart.png" height="35px" width="30px">';
-            heart.className = 'tries';
-            document.getElementById('scoreboard').children[0].appendChild(heart);
-        }
     }
     for(let i=0; i<qwerty.children.length; i++){
         for(let j=0; j<keyRows[i].length; j++) {
@@ -44,6 +34,16 @@ startButton.addEventListener('click', (e) => {
             button.textContent = keyRows[i][j];
             document.getElementsByClassName('keyrow')[i].appendChild(button);
         }
+    }
+    for(let i=0; i<5 - missed; i++) {
+        document.getElementById('scoreboard').children[0].removeChild(document.getElementById('scoreboard').children[0].children[0]);
+    }
+    missed = 0;
+    for(let i=0; i<5; i++) {
+        let heart = document.createElement('li');
+        heart.innerHTML = '<img src="images/liveHeart.png" height="35px" width="30px">';
+        heart.className = 'tries';
+        document.getElementById('scoreboard').children[0].appendChild(heart);
     }
 });
 
