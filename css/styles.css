@@ -78,6 +78,14 @@ button {
   padding: 10px;
 }
 
+.tries {
+  margin-left: 0.5em;
+}
+
+.tries:first-child {
+  margin: 0;
+}
+
 /* Title */
 
 .header {

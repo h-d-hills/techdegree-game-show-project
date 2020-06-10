@@ -10,7 +10,7 @@ const phrases = [
     'burning down the house', 
     'this must be the place',
     'road to nowhere',
-    'psycho killer'
+    'psycho killer',
 ];
 const keyRows = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
