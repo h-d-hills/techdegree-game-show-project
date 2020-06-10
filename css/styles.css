@@ -64,6 +64,10 @@ button {
   transition: var(--transition);
 }
 
+button:hover {
+  background-color: #bbbbbb;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -122,10 +126,14 @@ button {
 }
 
 .chosen {
-  background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+}
+
+.chosen,
+.chosen:hover {
+  background: var(--color-neutral);
 }
 
 .btn__reset {
