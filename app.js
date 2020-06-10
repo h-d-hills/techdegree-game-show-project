@@ -125,13 +125,13 @@ window.addEventListener('DOMContentLoaded', () => {
         if(document.getElementsByClassName('show').length == letters.length) {
             startScreen.className = 'win';
             startScreen.style.display = 'flex';
-            startScreen.children[0].innerText = 'Congratulations!';
+            startScreen.children[0].innerText = 'Victory!!!!';
             startScreen.children[1].innerText = 'The correct answer is "' + getCurrentPhrase() + ' ".';
             startButton.innerText = 'Next Round';
         }else if(missed == 5) {
             startScreen.className = 'lose';
             startScreen.style.display = 'flex';
-            startScreen.children[0].innerText = 'Failure!';
+            startScreen.children[0].innerText = 'Failure!!!!';
             startScreen.children[1].innerText = 'The correct answer is "' + getCurrentPhrase() + ' ".';
             startButton.innerText = 'Next Round';
         }
