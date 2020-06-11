@@ -107,10 +107,12 @@ button:hover {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  margin-bottom: 2px;
 }
 
 .space {
   width: 15px;
+  margin-bottom: 2px;
 }
 
 .show {
