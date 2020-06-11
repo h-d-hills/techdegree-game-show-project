@@ -136,6 +136,7 @@ button:hover {
 .chosen,
 .chosen:hover {
   background: var(--color-neutral);
+  cursor: default;
 }
 
 .btn__reset {
